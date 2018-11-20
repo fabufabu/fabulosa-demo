@@ -2,7 +2,7 @@ source https://www.nuget.org/api/v2
 storage:none
 framework: netstandard2.0
 
-nuget Fabulosa 0.0.59
+nuget Fabulosa 0.0.60
 nuget FSharp.Core redirects:force
 nuget Fable.Core
 nuget Fable.Elmish

@@ -10,7 +10,6 @@ open Elmish.React
 module R = Fable.Helpers.React
 open R.Props
 open Fabulosa.Button
-open Fabulosa.Accordion
 
 // MODEL
 
@@ -30,8 +29,8 @@ let update (msg:Msg) (model:Model) =
     | Decrement -> model - 1
 
 // VIEW (rendered with React)
-
-let def =
+open Fabulosa.Accordion
+let acc =
     accordion ([],
       [ Item ([],
           (OptIcon None,
@@ -46,13 +45,20 @@ let def =
              [ R.a [] [ R.str "Item One" ]
                R.a [] [ R.str "Item Two" ] ])) ])
 
+open Fabulosa.Card
+let crd =
+    card ([],
+        [ Header ([], (Title "Title", SubTitle "Subtitle")) ])
+
+
 let view (model:Model) dispatch =
 
   R.div []
       [ R.button [ OnClick (fun _ -> dispatch Increment) ] [ R.str "+" ]
         R.div [] [ R.str (string model) ]
         R.button [ OnClick (fun _ -> dispatch Decrement) ] [ R.str "-" ]
-        def
+        acc
+        crd
         button ([], [ R.str "Button" ])]
 
 // App
